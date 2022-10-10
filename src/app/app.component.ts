@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'first_try_webapp';
+  title = 'MESSAGE.....';
+  constructor(private http: HttpClient) {
+    this.http.get('/api/message')
+      .subscribe((resp: any) => this.title = resp.text);
+  }
 }
