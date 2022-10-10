@@ -10,6 +10,9 @@ export class AppComponent {
   title = 'MESSAGE.....';
   constructor(private http: HttpClient) {
     this.http.get('/api/HttpMessage')
-      .subscribe((resp: any) => this.title = resp.text);
+      .subscribe((resp: any) => {
+        console.log('yes, I received:', resp);
+        this.title = resp.text;
+      })
   }
 }
