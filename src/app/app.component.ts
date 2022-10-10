@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MESSAGE.....';
+  title = 'loading title.....';
   constructor(private http: HttpClient) {
     this.http.get('/api/HttpMessage')
       .subscribe((resp: any) => {
         console.log('yes, I received:', resp);
-        this.title = resp.text;
+        this.title = resp.responseMessage;
       })
   }
 }
